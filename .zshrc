@@ -6,55 +6,12 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
-source ~/.zprofile
+
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 setopt inc_append_history
-
-#My Variables
-
-# My Aliases
-
-alias rmd="rm -r"
-alias ls="ls -la"
-alias vi="vim"
-alias vpn="sudo openvpn"
-alias or="odin run ."
-alias hx="helix"
-
-#Movement
-alias ~="cd ~"
-alias ..="cd .."
-alias ...-"cd ..."
-
-alias htb="cd ~/Offsec/htb"
-alias cata="cd ~/Projects/odin/catalyst"
-alias labs="cd ~/Offsec/htb/labs"
-alias journal="cd ~/Documents/journal"
-
-#Editing / Sourcing
-alias sz="source ~/.zprofile"
-alias ezsh="vim ~/.config/zsh/.zshrc"
-alias ezp="vim ~/.zprofile"
-alias edwm="sudo vim ~rr/dwm/config.h"
-alias sdwm="cd ~rr/dwm && sudo make clean install"
-alias szrc="source ~/.config/zsh/.zshrc"
-alias ezrc="helix ~/.config/zsh/.zshrc"
-alias svim="sudo vim"
-alias sethost="sudo cp /etc/hosts.copy /etc/hosts"
-alias update="sudo pacman -Syu"
-alias munch='ssh munch@192.168.1.89'
-alias arty='ssh virt@192.168.1.100'
-alias myprojects='cd ~/Projects/myprojects'
-alias bandit="cd ~/Offsec/wargames/bandit/"
-alias clone='git clone'
-alias ventoy='cd ~/Downloads/vms/ventoy'
-#scripts
-export PATH=/home/livid/.scripts:$PATH
-
-
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
@@ -80,6 +37,19 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
+
+# User Defined Alias's
+alias vpn='sudo openvpn'
+alias journal='cd ~/Documents/general/journal'
+alias ezrc='vim ~/.config/zsh/.zshrc'
+alias szrc='source ~/.config/zsh/.zshrc'
+alias lfrc='vim ~/.config/lf/lfrc'
+alias evrc='vim ~/.config/nvim/init.vim'
+alias hx='helix'
+alias ufw='sudo ufw'
+alias l='ls'
+alias ...='cd ../../'
+alias ....='cd ../../../'
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
     case $KEYMAP in
