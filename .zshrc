@@ -14,7 +14,7 @@ HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 setopt inc_append_history
 
 #My Variables
-
+HOSTNAME=$HOST
 # My Aliases
 
 alias rmd="rm -r"
@@ -32,7 +32,7 @@ alias ...-"cd ..."
 alias htb="cd ~/Offsec/htb"
 alias cata="cd ~/Projects/odin/catalyst"
 alias labs="cd ~/Offsec/htb/labs"
-alias journal="cd ~/Documents/journal"
+alias vault="cd ~/Documents/vault"
 
 #Editing / Sourcing
 alias sz="source ~/.zprofile"
