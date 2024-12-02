@@ -32,7 +32,7 @@ alias ...-"cd ..."
 alias htb="cd ~/Offsec/htb"
 alias cata="cd ~/Projects/odin/catalyst"
 alias labs="cd ~/Offsec/htb/labs"
-alias vault="cd ~/Documents/vault"
+alias vault="cd ~/Documents/general/vault"
 
 #Editing / Sourcing
 alias sz="source ~/.zprofile"
@@ -51,6 +51,9 @@ alias myprojects='cd ~/Projects/myprojects'
 alias bandit="cd ~/Offsec/wargames/bandit/"
 alias clone='git clone'
 alias ventoy='cd ~/Downloads/vms/ventoy'
+alias pico='cd ~/Offsec/pico'
+alias zshrc='~/.config/zsh'
+
 #scripts
 export PATH=/home/livid/.scripts:$PATH
 
