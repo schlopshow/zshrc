@@ -53,7 +53,9 @@ alias clone='git clone'
 alias ventoy='cd ~/Downloads/vms/ventoy'
 alias pico='cd ~/Offsec/pico'
 alias zshrc='~/.config/zsh'
+alias vms='~/Downloads/vms/'
 
+alias boxmap='nmap -sC -sV -vv -oA nmap/$BOX $BOXIP'
 #scripts
 export PATH=/home/livid/.scripts:$PATH
 
