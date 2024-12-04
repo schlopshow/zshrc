@@ -55,7 +55,12 @@ alias pico='cd ~/Offsec/pico'
 alias zshrc='~/.config/zsh'
 alias vms='~/Downloads/vms/'
 
+#offsec
 alias boxmap='nmap -sC -sV -vv -oA nmap/$BOX $BOXIP'
+
+#ufw
+alias ufwstat='sudo ufw status numbered'
+alias ufwreset='sudo ufw reset'
 #scripts
 export PATH=/home/livid/.scripts:$PATH
 
