@@ -19,6 +19,9 @@ setopt inc_append_history
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
+ZSH_DISABLE_COMPFIX=true
+
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -40,7 +43,7 @@ bindkey -v '^?' backward-delete-char
 
 # User Defined Alias's
 alias vpn='sudo openvpn'
-alias journal='cd ~/Documents/general/journal'
+alias vault='cd ~/Documents/general/vault'
 alias ezrc='vim ~/.config/zsh/.zshrc'
 alias szrc='source ~/.config/zsh/.zshrc'
 alias lfrc='vim ~/.config/lf/lfrc'
@@ -50,6 +53,7 @@ alias ufw='sudo ufw'
 alias l='ls'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+alias wall="wal -i"
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
     case $KEYMAP in
