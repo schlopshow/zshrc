@@ -65,9 +65,10 @@ alias ...-"cd ..."
 #UFW Aliases
 alias ufwup='sudo ufw enable'
 alias ufwdown='sudo ufw disable'
-alias ufwstat='sudo ufw status numbered'
 alias ufwrev='sudo ufw allow 8727 && sudo ufw allow out 8727'
 alias ufwrevoff='sudo ufw deny 8727 && sudo ufw deny out 8727'
+alias ufwstat='sudo ufw status numbered'
+alias ufwreset='sudo ufw reset'
 
 #Application Aliases
 alias discord='flatpak run com.discordapp.Discord'
@@ -80,13 +81,10 @@ alias boxmap='mkdir nmap && nmap -Pn -T5 -sC -sV -vv -oA nmap/$BOX $BOXIP'
 alias portmap='mkdir portmap && nmap -p- -Pn -oA portmap/$BOX $BOXIP'
 alias vp="sudo openvpn"
 
-
-#ufw
-alias ufwstat='sudo ufw status numbered'
-alias ufwreset='sudo ufw reset'
-#scripts
-export PATH=/home/livid/.scripts:$PATH
-
+#Github
+alias gA='git add .'
+alias gM='git commit -m "$1;"' 
+alias gPM='git push origin main'
 # Schlop's Functions
 mka() {
     mkdir -p "$1" && echo "alias $1='cd $(realpath "$1")'" >> ~/.config/zsh/.zshrc && source ~/.config/zsh/.zshrc
