@@ -81,10 +81,6 @@ alias boxmap='mkdir nmap && nmap -Pn -T5 -sC -sV -vv -oA nmap/$BOX $BOXIP'
 alias portmap='mkdir portmap && nmap -p- -Pn -oA portmap/$BOX $BOXIP'
 alias vp="sudo openvpn"
 
-#Github
-alias gA='git add .'
-alias gM='git commit -m "$1;"' 
-alias gPM='git push origin main'
 # Schlop's Functions
 mka() {
     mkdir -p "$1" && echo "alias $1='cd $(realpath "$1")'" >> ~/.config/zsh/.zshrc && source ~/.config/zsh/.zshrc
