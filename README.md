@@ -3,16 +3,14 @@
 ## Overview
 This Zsh configuration is adapted from Luke Smith's zsh config, which you can find **[here](https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52)**.
 
-My adaptations are quite simple—I have added aliases and functions to streamline navigation and improve workflow efficiency. One key addition is the `mka()` function, which allows for more control when creating directories with an alias. While there may be more optimal solutions, this approach works well for my needs.
+My adaptations are quite simple. I have added aliases and functions to streamline navigation and improve workflow efficiency for myself.
 
 ## Features & Customizations
 ### 🔹 Directory Management
 - **`mka()` function** – Provides fine-grained control over directory creation with aliases.
 
 ### 🔹 Custom Aliases
-- Contains shortcuts for commands I frequently use in various applications.
-- Includes debugging tools specifically tailored for Arch-based systems.
-- These shortcuts may not be useful for everyone, but they enhance my workflow significantly.
+- Contains shortcuts for commands I frequently use to start applications.
 
 ### 🔹 Firewall Management
 - **UFW (Uncomplicated Firewall) aliases** to simplify firewall setup and management.
