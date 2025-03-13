@@ -1,8 +1,8 @@
-# Luke's config for the Zoomer Shell
-
+#Schlop's Version zsh (Luke Smith's config as base)
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -13,56 +13,107 @@ SAVEHIST=10000000
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 setopt inc_append_history
 
-#My Variables
-HOSTNAME=$HOST
-# My Aliases
-
-alias rmd="rm -r"
-alias ls="ls -la"
-alias vi="vim"
-alias vpn="sudo openvpn"
-alias or="odin run ."
-alias hx="helix"
-
 #Movement
-alias ~="cd ~"
-alias ..="cd .."
-alias ...-"cd ..."
-
 alias htb="cd ~/Offsec/htb"
 alias cata="cd ~/Projects/odin/catalyst"
 alias labs="cd ~/Offsec/htb/labs"
 alias vault="cd ~/Documents/general/vault"
+alias bandit="cd ~/Offsec/wargames/bandit/"
+alias pwn='cd ~/Offsec/ctf/pwn'
+alias 0xl='cd ~/Offsec/ctf/0xlaugh'
+alias acad='cd ~/Offsec/htb/academy/'
+alias vms='cd ~/Downloads/vms/'
+alias projects='cd ~/Projects'
+alias thm='cd ~/Offsec/thm'
+alias vpn='cd ~/Downloads/vpn/'
+alias myprojects='cd ~/Projects/myprojects'
+alias pico='cd ~/Offsec/pico'
+alias la='~/Offsec/ctf/la/'
 
-#Editing / Sourcing
+#Sourcing
 alias sz="source ~/.zprofile"
+alias szrc="source ~/.config/zsh/.zshrc"
+
+#Editing Configs
 alias ezsh="vim ~/.config/zsh/.zshrc"
 alias ezp="vim ~/.zprofile"
 alias edwm="sudo vim ~rr/dwm/config.h"
 alias sdwm="cd ~rr/dwm && sudo make clean install"
-alias szrc="source ~/.config/zsh/.zshrc"
 alias ezrc="helix ~/.config/zsh/.zshrc"
-alias svim="sudo vim"
-alias sethost="sudo cp /etc/hosts.copy /etc/hosts"
-alias update="sudo pacman -Syu"
-alias munch='ssh munch@192.168.1.89'
-alias arty='ssh virt@192.168.1.100'
-alias myprojects='cd ~/Projects/myprojects'
-alias bandit="cd ~/Offsec/wargames/bandit/"
-alias clone='git clone'
-alias ventoy='cd ~/Downloads/vms/ventoy'
-alias pico='cd ~/Offsec/pico'
-alias zshrc='~/.config/zsh'
-alias vms='~/Downloads/vms/'
 
-#offsec
-alias boxmap='nmap -sC -sV -vv -oA nmap/$BOX $BOXIP'
+#Commands
+alias rmd="rm -r"
+alias ls="ls -la"
+alias vi='helix'
+alias vim='helix'
+alias or="odin run ."
+alias hx="helix"
+alias open='nemo'
+alias svim="sudo helix"
+alias sethost="sudo cp /etc/hosts.copy /etc/hosts"
+alias update="sudo pacman -Syu --noconfirm --needed"
+alias clone='git clone'
+alias zshrc='~/.config/zsh'
+alias yt='yt-dlp' 
+alias passopen="~/.scripts/passopen.sh </dev/null &>/dev/null &"
+alias rmr='rm -rf'
+alias srm='sudo rm -rf'
+alias ~="cd ~"
+alias ..="cd .."
+alias ...-"cd ..."
+
+#UFW Aliases
+alias ufwup='sudo ufw enable'
+alias ufwdown='sudo ufw disable'
+alias ufwstat='sudo ufw status numbered'
+alias ufwrev='sudo ufw allow 8727 && sudo ufw allow out 8727'
+alias ufwrevoff='sudo ufw deny 8727 && sudo ufw deny out 8727'
+
+#Application Aliases
+alias discord='flatpak run com.discordapp.Discord'
+alias flameshot='flameshot gui'
+alias resolve=' LD_PRELOAD="/usr/lib/libgio-2.0.so /usr/lib/libgmodule-2.0.so /usr/lib/libglib-2.0.so" /opt/resolve/bin/resolve'
+alias kdenlive='./home/livid/Downloads/apps/kdenlive-24.12.2-x86_64.AppImage'
+
+#Pentesting
+alias boxmap='mkdir nmap && nmap -Pn -T5 -sC -sV -vv -oA nmap/$BOX $BOXIP'
+alias portmap='mkdir portmap && nmap -p- -Pn -oA portmap/$BOX $BOXIP'
+alias vp="sudo openvpn"
+
 
 #ufw
 alias ufwstat='sudo ufw status numbered'
 alias ufwreset='sudo ufw reset'
 #scripts
 export PATH=/home/livid/.scripts:$PATH
+
+# Schlop's Functions
+mka() {
+    mkdir -p "$1" && echo "alias $1='cd $(realpath "$1")'" >> ~/.config/zsh/.zshrc && source ~/.config/zsh/.zshrc
+}
+
+mkcd() { mkdir -p "$1" && cd "$1"; }
+
+
+BOXIP() {
+    echo "export BOXIP=$1" > ~/.config/env/boxip_env
+    export BOXIP="$1"
+ }
+boxip() {BOXIP "$@";}
+
+ # This sources the environment files that get changed by the BOXIP function
+[ -f ~/.config/env/boxip_env ] && source ~/.config/env/boxip_env
+
+BOX() { echo "export BOX=$1" > ~/.config/env/box_env
+    export BOX="$1"
+}
+
+box() {BOX "$@";}
+
+ # This sources the environment files that get changed by the BOX function
+[ -f ~/.config/env/box_env ] && source ~/.config/env/box_env
+
+
 
 
 
@@ -133,3 +184,19 @@ bindkey -M visual '^[[P' vi-delete
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+
+# appended aliases created by mka()
+# I should probably change this from taking the realpath to taking the variable $HOME
+alias active='cd /home/livid/Offsec/htb/labs/active'
+alias github='cd /home/livid/Projects/github'
+alias progs='cd /home/livid/Projects/github/progs'
+alias jarvis='cd /home/livid/Offsec/htb/labs/jarvis'
+alias relevant='cd /home/livid/Offsec/thm/relevant'
+alias codify='cd /home/livid/Offsec/htb/labs/codify'
+alias flashcard='cd /home/livid/Documents/flashcard'
+alias tabby='cd /home/livid/Offsec/htb/labs/tabby'
+alias Cmess='cd /home/livid/Offsec/thm/Cmess'
+alias sniper='cd /home/livid/Offsec/htb/sniper'
+alias poison='cd /home/livid/Offsec/htb/labs/poison'
+alias tartarsauce='cd /home/livid/Offsec/htb/labs/tartarsauce'
+alias usage='cd /home/livid/Offsec/htb/labs/usage'
