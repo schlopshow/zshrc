@@ -28,7 +28,7 @@ git clone git@github.com:schlopshow/zshrc.git ~/.config/zsh
 source ~/.config/zsh/.zshrc
 ```
 
-## TODO-LIST
+## TO-DO-LIST
 
 - I need to make the aliases I add with the mka() function use $HOME or '~' instead of my realpath because it leads to my users home directory.
 
