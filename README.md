@@ -25,7 +25,7 @@ To use this config, simply clone the repository and source the `.zshrc` file:
 
 ```sh
 cd ~
-git clone <repo-url> ~/.config/zsh
+git clone git@github.com:schlopshow/zshrc.git ~/.config/zsh
 source ~/.config/zsh/.zshrc
 ```
 
@@ -38,4 +38,3 @@ source ~/.config/zsh/.zshrc
 
 ## FIN
 This configuration is a work in progress, and I continuously add new aliases or functions to optimize my workflow. If want to contribute DM me on discord @schlopz, I will add an email contact soon TM.
-
