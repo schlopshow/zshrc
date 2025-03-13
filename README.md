@@ -24,7 +24,6 @@ My adaptations are quite simple. I have added aliases and functions to streamlin
 To use this config, simply clone the repository and source the `.zshrc` file:
 
 ```sh
-cd ~
 git clone git@github.com:schlopshow/zshrc.git ~/.config/zsh
 source ~/.config/zsh/.zshrc
 ```
