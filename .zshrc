@@ -80,6 +80,8 @@ alias kdenlive='./home/livid/Downloads/apps/kdenlive-24.12.2-x86_64.AppImage'
 alias boxmap='mkdir nmap && nmap -Pn -T5 -sC -sV -vv -oA nmap/$BOX $BOXIP'
 alias portmap='mkdir portmap && nmap -p- -Pn -oA portmap/$BOX $BOXIP'
 alias vp="sudo openvpn"
+alias vthm="sudo openvpn ~/Downloads/vpn/thm/Schlop.ovpn"
+alias vhtb="sudo openvpn ~/Downloads/vpn/htb/lab_schlop.ovpn"
 
 # Schlop's Functions
 mka() {
@@ -194,3 +196,4 @@ alias sniper='cd /home/livid/Offsec/htb/sniper'
 alias poison='cd /home/livid/Offsec/htb/labs/poison'
 alias tartarsauce='cd /home/livid/Offsec/htb/labs/tartarsauce'
 alias usage='cd /home/livid/Offsec/htb/labs/usage'
+alias mentor='cd /home/livid/Offsec/htb/labs/mentor'
