@@ -44,7 +44,7 @@ alias szrc="source ~/.config/zsh/.zshrc"
 alias ezrc="helix ~/.config/zsh/.zshrc"
 alias svim="sudo vim"
 alias sethost="sudo cp /etc/hosts.copy /etc/hosts"
-alias update="sudo pacman -Syu"
+alias update="sudo pacman -Syu --noconfirm --needed"
 alias munch='ssh munch@192.168.1.89'
 alias arty='ssh virt@192.168.1.100'
 alias myprojects='cd ~/Projects/myprojects'
@@ -53,17 +53,29 @@ alias clone='git clone'
 alias ventoy='cd ~/Downloads/vms/ventoy'
 alias pico='cd ~/Offsec/pico'
 alias zshrc='~/.config/zsh'
-alias vms='~/Downloads/vms/'
+alias vms='cd ~/Downloads/vms/'
+alias projects='cd ~/Projects'
+alias thm='cd ~/Offsec/thm'
+alias vp='cd ~/Downloads/vpn'
+alias yt='yt-dlp'
+alias pwn='cd ~/Offsec/ctf/pwn'
+alias 0xl='cd ~/Offsec/ctf/0xlaugh'
+alias progs='vim ~/Documents/sources'
+alias passopen="~/.scripts/passopen.sh </dev/null &>/dev/null &"
+# offsec
+alias boxmap='nmap -Pn -T5 -sC -sV -vv -oA nmap/$BOX $BOXIP'
 
-#offsec
-alias boxmap='nmap -sC -sV -vv -oA nmap/$BOX $BOXIP'
+alias portmap='nmap -p- -Pn -T5 -v $BOXIP'
 
+alias flameshot='flameshot gui'
+
+alias ts='tomb slam'
 #ufw
 alias ufwstat='sudo ufw status numbered'
 alias ufwreset='sudo ufw reset'
 #scripts
-export PATH=/home/livid/.scripts:$PATH
-
+export MANPAGER="nvim +Man!" # opens man with nvim instead of less
+#export LESS='-R -M --shift 5 --vi'
 
 
 # Load aliases and shortcuts if existent.
